@@ -1,0 +1,10 @@
+NAME                                                              READY   STATUS      RESTARTS   AGE     IP              NODE                                  NOMINATED NODE   READINESS GATES
+admin-node-ip-1qmz9-job-n66q9                                     0/1     Completed   0          18m     10.255.11.17    w06.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+businessactivity-immediatepayment-businessactivity-immediazscc8   1/1     Running     0          9m17s   10.255.11.37    w06.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+couchbase-admin-65cd4dfff-s7j54                                   1/1     Running     0          18m     10.255.11.17    w06.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+couchbase-node-66755f6cf6-f9mkw                                   1/1     Running     0          18m     10.255.5.197    w03.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+couchbase-service-broker-8c6886bfd-bljdl                          1/1     Running     0          11m     10.255.10.187   w10.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+kafka-service-76c7c48ffc-krn2v                                    1/1     Running     0          13m     10.255.18.177   w11.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+kafka-service-broker-b5dc8658b-lm8xx                              1/1     Running     0          12m     10.255.10.177   w10.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+ms-lifecycle-operator-79b455bf94-djwfh                            1/1     Running     0          19m     10.255.11.177    w06.inocpde408.ocpd.corp.amdocs.com   <none>           <none>
+zookeeper-service-6f76467478-6ll5x                                1/1     Running     0          14m     10.255.13.277   w05.inocpde408.ocpd.corp.amdocs.com   <none>           <none>

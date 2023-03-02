@@ -1,0 +1,80 @@
+Name:         couchbase-admin-65cd4dfff-s7j54
+Namespace:    feature-cancelpayment-businessactivity-immediate
+Priority:     0
+Node:         w06.inocpde408.ocpd.corp.amdocs.com/10.88.201.81
+Start Time:   Thu, 24 Mar 2022 07:45:52 +0000
+Labels:       pod-template-hash=65cd4dfff
+              provider=amdocs
+              role=admin
+              type=couchbase-server
+Annotations:  k8s.v1.cni.cncf.io/network-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.258.11.88"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              k8s.v1.cni.cncf.io/networks-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.258.11.88"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              openshift.io/scc: restricted
+Status:       Running
+IP:           10.258.11.88
+IPs:
+  IP:           10.258.11.88
+Controlled By:  ReplicaSet/couchbase-admin-65cd4dfff
+Containers:
+  docker-couchbase-container:
+    Container ID:   cri-o://a82db5e8541f9437dd89b481a990ab38e3beb3ccb55667fac0c083c26ce43f2d
+    Image:          indlin3551.corp.amdocs.com:4000/backing-services/amd_couchbase:7.0.4
+    Image ID:       indlin3551.corp.amdocs.com:4000/backing-services/amd_couchbase@sha256:b43e2c4a8099f41acd0fdefb3d8c20b2c5bf1487e0d3ec09dd259a4681b3d949
+    Ports:          8091/TCP, 8092/TCP, 8093/TCP, 8094/TCP, 11210/TCP, 11207/TCP, 18091/TCP, 18092/TCP, 18093/TCP
+    Host Ports:     0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP, 0/TCP
+    State:          Running
+      Started:      Thu, 24 Mar 2022 07:46:01 +0000
+    Ready:          True
+    Restart Count:  0
+    Liveness:       http-get http://:8091/ui/index.html delay=120s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:8091/ui/index.html delay=180s timeout=1s period=10s #success=1 #failure=3
+    Environment:
+      MODE:  admin
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-6jfdt (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  kube-api-access-6jfdt:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+    ConfigMapName:           openshift-service-ca.crt
+    ConfigMapOptional:       <nil>
+QoS Class:                   BestEffort
+Node-Selectors:              node-role.kubernetes.io/worker=
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason          Age   From               Message
+  ----    ------          ----  ----               -------
+  Normal  Scheduled       19m   default-scheduler  Successfully assigned feature-cancelpayment-businessactivity-immediate/couchbase-admin-65cd4dfff-s7j54 to w06.inocpde408.ocpd.corp.amdocs.com
+  Normal  AddedInterface  19m   multus             Add eth0 [10.258.11.88/24] from openshift-sdn
+  Normal  Pulling         19m   kubelet            Pulling image "indlin3551.corp.amdocs.com:4000/backing-services/amd_couchbase:7.0.4"
+  Normal  Pulled          18m   kubelet            Successfully pulled image "indlin3551.corp.amdocs.com:4000/backing-services/amd_couchbase:7.0.4" in 3.986843441s
+  Normal  Created         18m   kubelet            Created container docker-couchbase-container
+  Normal  Started         18m   kubelet            Started container docker-couchbase-container

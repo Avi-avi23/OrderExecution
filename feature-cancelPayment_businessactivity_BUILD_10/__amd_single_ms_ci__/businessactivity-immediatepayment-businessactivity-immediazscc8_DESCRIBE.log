@@ -1,0 +1,205 @@
+Name:         businessactivity-immediatepayment-businessactivity-immediazscc8
+Namespace:    feature-cancelpayment-businessactivity-immediate
+Priority:     0
+Node:         w06.inocpde408.ocpd.corp.amdocs.com/10.68.201.91
+Start Time:   Thu, 24 Mar 2022 07:55:30 +0000
+Labels:       app=businessactivity-immediatepayment-businessactivity-immediatepay
+              app.amdocs.com/domain=businessactivity-subdomain
+              app.amdocs.com/provider=amdocs
+              app.kubernetes.io/component=functional-backend
+              app.kubernetes.io/instance=businessactivity-immediatepayment
+              app.kubernetes.io/managed-by=ms-lifecycle-operator
+              app.kubernetes.io/name=businessactivity-immediatepayment-businessactivity-immediatepay
+              app.kubernetes.io/part-of=order-handling
+              app.kubernetes.io/version=0.57.17-31208.10
+              pod-template-hash=5548946d87
+              serviceSize=small
+              topolgySpreadSetting=best-effort
+              version=0.57.17-31208.10
+Annotations:  amdocs.microservice/business-container: businessactivity-immediatepayment-service-container
+              businessactivity-immedia-spring-jwt-validation-configmap: 729e9c0d8c10e94e00791d0d146d33ef
+              businessactivity-immediatepayment-service-appconfig: 5a179cc38ca6931580dab1f347d2c6a0
+              fabric8.io/iconUrl: img/icons/spring-boot.svg
+              git-commit: d75e715ea551e8b39935907af927df232169e09f
+              k8s.v1.cni.cncf.io/network-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.255.11.51"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              k8s.v1.cni.cncf.io/networks-status:
+                [{
+                    "name": "openshift-sdn",
+                    "interface": "eth0",
+                    "ips": [
+                        "10.255.11.35"
+                    ],
+                    "default": true,
+                    "dns": {}
+                }]
+              meta.helm.sh/release-name: businessactivity-immediatepayment
+              meta.helm.sh/release-namespace: feature-cancelpayment-businessactivity-immediate
+              openshift.io/scc: restricted
+              platform-ext-svc-b1eec1160910575c66e13953a8e3306f: d79da48c1a4f4d20ad0d0092c23cddef
+Status:       Running
+IP:           10.255.11.51
+IPs:
+  IP:           10.255.11.55
+Controlled By:  ReplicaSet/businessactivity-immediatepayment-businessactivity-immediatepay-5548946d87
+Init Containers:
+  application-container:
+    Container ID:  cri-o://22799e68fbff6dcf6243b11b0a47e6d134d01bc92787f776b8beb0383d392476
+    Image:         indlin3551.corp.amdocs.com:4000/businessactivity-immediatepayment-service:0.57.17-31208.10
+    Image ID:      indlin3551.corp.amdocs.com:4000/businessactivity-immediatepayment-service@sha256:2bdb2adcb0daf6a867f014546c3be6253ff6300d6815ee0289ad93017c03d0ff
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /gocp
+      /deployable/deploy/
+      /opt/amdocs/custom/deploy/
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Thu, 24 Mar 2022 07:55:54 +0000
+      Finished:     Thu, 24 Mar 2022 07:55:54 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  128Mi
+    Requests:
+      cpu:        200m
+      memory:     128Mi
+    Environment:  <none>
+    Mounts:
+      /opt/amdocs/custom/deploy from empty-shared-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-n866f (ro)
+Containers:
+  businessactivity-immediatepayment-service-container:
+    Container ID:   cri-o://105edaf1ab6bfe5a1dad933a1d0948a9ec3b94fdade759b958153116ca0b042d
+    Image:          indlin3991.corp.amdocs.com:4000/fnd-base-images/ocp-os-java-msnext:10.3.10
+    Image ID:       indlin3991.corp.amdocs.com:4000/fnd-base-images/ocp-os-java-msnext@sha256:49e4907621a8788b08c7bfc59d8a8308674bfc5b69f962ab3b44a459850b8649
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Thu, 24 Mar 2022 07:55:55 +0000
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     1
+      memory:  1Gi
+    Requests:
+      cpu:      200m
+      memory:   512Mi
+    Liveness:   http-get http://:8081/actuator/health delay=300s timeout=900s period=10s #success=1 #failure=3
+    Readiness:  http-get http://:8081/actuator/health delay=120s timeout=900s period=10s #success=1 #failure=3
+    Environment:
+      KUBERNETES_NAMESPACE:                                                                       feature-cancelpayment-businessactivity-immediate (v1:metadata.namespace)
+      MSNEXT_DISABLED_MODULES:                                                                    msnext-customization,msnext-scs
+      MSNEXT_DEPLOY_PATH:                                                                         /opt/amdocs/custom/deploy
+      MSNEXT_JAVA_OPTS:                                                                           -DexternalServices.multiVersionConsumer.productOrder.api=/productOrdering/v2.1 -Dcom.amdocs.msnext.securityjwt.jwt.validation.type=FAKE -Dcom.amdocs.msnext.securityjwt.jwt-validation.validation-policies.global.exclude-predicates=signature,expiration,audience -XX:+DisableExplicitGC -XX:+UseG1GC  -XX:MaxRAMPercentage=75
+      MSNEXT_JACOCO_ENABLE:                                                                       true
+      MSNEXT_JACOCO_OPTS:                                                                         output=tcpserver,address=*,port=6300
+      MSNEXT_JAVA_DEBUG:                                                                          false
+      K8S_NAMESPACE:                                                                              feature-cancelpayment-businessactivity-immediate
+      PLATFORM_NAMESPACE:                                                                         feature-cancelpayment-businessactivity-immediate
+      PLATFORM_MS_NAME:                                                                           businessactivity-immediatepayment-businessactivity-immediatepay
+      PLATFORM_KAFKA_ENV:                                                                         
+      PLATFORM_CLUSTER_MASTER:                                                                    172.30.0.1
+      PLATFORM_SERVER_PROTOCOL:                                                                   http
+      PLATFORM_SERVER_PORT:                                                                       8080
+      PLATFORM_FQDN_SUFFIX:                                                                       feature-cancelpayment-businessactivity-immediate.svc.cluster.local
+      PLATFORM_MANAGEMENT_SERVER_PORT:                                                            8081
+      PLATFORM_TLS_MODE:                                                                          false
+      PLATFORM_CLUSTER_DOMAIN:                                                                    cluster.local
+      PLATFORM_TYPE:                                                                              ocp
+      PLATFORM_ENV_TYPE:                                                                          production
+      PLATFORM_CONTAINER_IMAGE:                                                                   indlin3553
+      PLATFORM_KAFKA_SHARING_MODE:                                                                non-shared
+      PLATFORM_COUCHBASE_SHARING_MODE:                                                            non-shared
+      PLATFORM_ELASTIC_SEARCH_SHARING_MODE:                                                       non-shared
+      PLATFORM_POSTGRES_SHARING_MODE:                                                             non-shared
+      PLATFORM_MS_VERSION:                                                                        0.57.17-31208.10
+      MSNEXT_JAVA_OPTS_TMP_DIR:                                                                   -Djava.io.tmpdir=/tmp
+      MSNEXT_CONF_SOURCE_050_BUSINESSACTIVITY_IMMEDIATEPAYM_886CF1F0D4716F2AF9CE7ADAF49E97C1:     /run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1/kafka-d1-kafka_spring_cloud_stream.yaml
+      MSNEXT_CONF_SOURCE_050_BUSINESSACTIVITY_IMMEDIATEPAYM_400A8345589A58AA58B6BEE0FE7324E5:     /run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1-orderhistorytracking-orderhistorytracking-publish/OrderHistoryTracking-OrderHistoryTracking_publish-topic_spring_cloud_stream.yaml
+      MSNEXT_CONF_SOURCE_100_PLATFORM_EXT_SVC_B1EEC1160910575C66E13953A8E3306F_CONFIGMAP:         /deployments/config/platform-ext-svc-b1eec1160910575c66e13953a8e3306f
+      SPRING_CONFIG_ADDITIONAL_LOCATION:                                                          /deployments/config/platform-ext-svc-b1eec1160910575c66e13953a8e3306f/,/deployments/config/businessactivity-immedia-spring-jwt-validation-configmap/,/deployments/config/businessactivity-immediatepayment-service-appconfig/,/run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1/kafka-d1-kafka_spring_cloud_stream.yaml,/run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1-orderhistorytracking-orderhistorytracking-publish/OrderHistoryTracking-OrderHistoryTracking_publish-topic_spring_cloud_stream.yaml
+      MSNEXT_CONF_SOURCE_100_BUSINESSACTIVITY_IMMEDIATEPAYMENT_SERVICE_APPCONFIG_CONFIGMAP:       /deployments/config/businessactivity-immediatepayment-service-appconfig
+      MSNEXT_CONF_SOURCE_100_BUSINESSACTIVITY_IMMEDIA_SPRING_JWT_VALIDATION_CONFIGMAP_CONFIGMAP:  /deployments/config/businessactivity-immedia-spring-jwt-validation-configmap
+    Mounts:
+      /deployments/config/businessactivity-immedia-spring-jwt-validation-configmap from businessactivity-immedia-spring-jwt-vali-configmap-volume (rw)
+      /deployments/config/businessactivity-immediatepayment-service-appconfig from businessactivity-immediatepayment-servic-configmap-volume (rw)
+      /deployments/config/platform-ext-svc-b1eec1160910575c66e13953a8e3306f from platform-ext-svc-b1eec1160910575c66e13953a8e3306f-confi-volume (rw)
+      /opt/amdocs/custom/deploy from empty-shared-volume (rw)
+      /run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1 from businessactivity-immediatepaym-886cf1f0d4716f2af9ce7adaf49e97c1 (rw)
+      /run/secrets/ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1-orderhistorytracking-orderhistorytracking-publish from businessactivity-immediatepaym-400a8345589a58aa58b6bee0fe7324e5 (rw)
+      /tmp from tmp-shared-volume (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-n866f (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             True 
+  ContainersReady   True 
+  PodScheduled      True 
+Volumes:
+  empty-shared-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  businessactivity-immediatepaym-886cf1f0d4716f2af9ce7adaf49e97c1:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1
+    Optional:    false
+  businessactivity-immediatepaym-400a8345589a58aa58b6bee0fe7324e5:
+    Type:        Secret (a volume populated by a Secret)
+    SecretName:  ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1-orderhistorytracking-orderhistorytracking-publish
+    Optional:    false
+  platform-ext-svc-b1eec1160910575c66e13953a8e3306f-confi-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      platform-ext-svc-b1eec1160910575c66e13953a8e3306f
+    Optional:  false
+  tmp-shared-volume:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     
+    SizeLimit:  <unset>
+  businessactivity-immediatepayment-servic-configmap-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      businessactivity-immediatepayment-service-appconfig
+    Optional:  false
+  businessactivity-immedia-spring-jwt-vali-configmap-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      businessactivity-immedia-spring-jwt-validation-configmap
+    Optional:  false
+  kube-api-access-n866f:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+    ConfigMapName:           openshift-service-ca.crt
+    ConfigMapOptional:       <nil>
+QoS Class:                   Burstable
+Node-Selectors:              node-role.kubernetes.io/worker=
+Tolerations:                 node.kubernetes.io/memory-pressure:NoSchedule op=Exists
+                             node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason          Age                    From               Message
+  ----     ------          ----                   ----               -------
+  Normal   Scheduled       9m24s                  default-scheduler  Successfully assigned feature-cancelpayment-businessactivity-immediate/businessactivity-immediatepayment-businessactivity-immediazscc8 to w06.inocpde408.ocpd.corp.amdocs.com
+  Warning  FailedMount     9m22s (x3 over 9m24s)  kubelet            MountVolume.SetUp failed for volume "businessactivity-immediatepaym-886cf1f0d4716f2af9ce7adaf49e97c1" : secret "ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1" not found
+  Warning  FailedMount     9m20s (x4 over 9m24s)  kubelet            MountVolume.SetUp failed for volume "businessactivity-immediatepaym-400a8345589a58aa58b6bee0fe7324e5" : secret "ksb-businessactivity-immediatepayment-businessactivity-immediatepay-kafka-d1-orderhistorytracking-orderhistorytracking-publish" not found
+  Normal   AddedInterface  9m14s                  multus             Add eth0 [10.255.11.35/24] from openshift-sdn
+  Normal   Pulling         9m13s                  kubelet            Pulling image "indlin3551.corp.amdocs.com:4000/businessactivity-immediatepayment-service:0.57.17-31208.10"
+  Normal   Pulled          9m1s                   kubelet            Successfully pulled image "indlin3991.corp.amdocs.com:4000/businessactivity-immediatepayment-service:0.57.17-31208.10" in 12.815058058s
+  Normal   Created         9m                     kubelet            Created container application-container
+  Normal   Started         9m                     kubelet            Started container application-container
+  Normal   Pulled          9m                     kubelet            Container image "indlin3991.corp.amdocs.com:4000/fnd-base-images/ocp-os-java-msnext:10.3.10" already present on machine
+  Normal   Created         8m59s                  kubelet            Created container businessactivity-immediatepayment-service-container
+  Normal   Started         8m59s                  kubelet            Started container businessactivity-immediatepayment-service-container
+  Warning  Unhealthy       6m51s                  kubelet            Readiness probe failed: HTTP probe failed with statuscode: 503
